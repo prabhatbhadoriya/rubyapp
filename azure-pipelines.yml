@@ -10,9 +10,15 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: UseRubyVersion@0
-  inputs:
-    versionSpec: '>= 2.5'
+- script: |
+    apt install curl
+    apt install ruby-full
+    apt install sqlite3
+    apt install sqlitebrowser
+    gem install rails
+    
+    
+  displayName: ' install'
 
 - script: |
     gem install bundler
